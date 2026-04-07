@@ -309,6 +309,8 @@ module.exports = NodeHelper.create({
         } else {
           const events = res.data.items;
 
+          Log.info(`${this.name}: Colors: ${this.calendarService.colors}`);
+
           this.calendarService.colors.list({}, (err, res) => {
             if (err) {
               Log.error(`${this.name} Error. Could not fetch calendar colors: `, calendarID, formatError(err));
