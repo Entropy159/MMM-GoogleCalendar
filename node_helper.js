@@ -325,6 +325,8 @@ module.exports = NodeHelper.create({
             } else {
               const colors = res.data.event;
 
+              Log.info(`${this.name}: Received colors: ${JSON.stringify(colors, null, 2)}`);
+
               events.forEach(event => {
                 const color = colors[event.colorId].background;
                 event.color = color;
