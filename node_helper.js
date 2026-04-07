@@ -331,10 +331,7 @@ module.exports = NodeHelper.create({
                   const color = colorObj.background;
                   event.color = color;
                 }
-                Log.info(`${this.name}: Mapped ID ${event.colorId} to ${event.color}`);
               });
-
-              Log.info(`${this.name}: Events: ${JSON.stringify(events, null, 2)}`);
 
               Log.info(
                 `${this.name}: ${events.length} events loaded for ${calendarID}`
