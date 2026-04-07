@@ -336,7 +336,6 @@ module.exports = NodeHelper.create({
               Log.info(
                 `${this.name}: ${events.length} events loaded for ${calendarID}`
               );
-              Log.info(`${this.name}: Events: ${JSON.stringify(events, null, 2)}`);
               this.broadcastEvents(events, identifier, calendarID);
             }
           });
