@@ -309,9 +309,9 @@ module.exports = NodeHelper.create({
         } else {
           const events = res.data.items;
 
-          Log.info(`${this.name}: Colors: ${this.calendarService.colors}`);
+          Log.info(`${this.name}: Colors: ${Object.keys(this.calendarService.colors)}`);
 
-          this.calendarService.colors.list({}, (err, res) => {
+          this.calendarService.colors.get({}, (err, res) => {
             if (err) {
               Log.error(`${this.name} Error. Could not fetch calendar colors: `, calendarID, formatError(err));
               let errorType = NodeHelper.checkFetchError(err); // Use let for reassigned variable
