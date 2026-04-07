@@ -327,7 +327,7 @@ module.exports = NodeHelper.create({
 
               events.forEach(event => {
                 const colorObj = colors[event.colorId];
-                if (colorObj !== null) {
+                if (colorObj) {
                   const color = colorObj.background;
                   event.color = color;
                 }
