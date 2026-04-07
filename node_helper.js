@@ -325,17 +325,20 @@ module.exports = NodeHelper.create({
             } else {
               const colors = res.data.event;
 
-              events.array.forEach(event => {
+              events.forEach(event => {
                 const color = colors[event.colorId].background;
                 event.color = color;
+                Log.info(`${this.name}: Mapped ID ${event.colorId} to ${event.color}`);
               });
+
+              Log.info(`${this.name}: Events: ${JSON.stringify(events, null, 2)}`);
+
+              Log.info(
+                `${this.name}: ${events.length} events loaded for ${calendarID}`
+              );
+              this.broadcastEvents(events, identifier, calendarID);
             }
           });
-
-          Log.info(
-            `${this.name}: ${events.length} events loaded for ${calendarID}`
-          );
-          this.broadcastEvents(events, identifier, calendarID);
         }
 
         this.scheduleNextCalendarFetch(
