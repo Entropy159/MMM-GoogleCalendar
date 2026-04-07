@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/randomBrainstormer/MMM-GoogleCalendar.git"
+    "url": "git+https://github.com/Entropy159/MMM-GoogleCalendar.git"
   },
   "keywords": [
     "MagicMirror",
@@ -18,14 +18,14 @@
     "Calendar"
   ],
   "author": {
-    "name": "randomBrainstormer",
-    "url": "https://github.com/randomBrainstormer"
+    "name": "Entropy159",
+    "url": "https://github.com/Entropy159"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/randomBrainstormer/MMM-GoogleCalendar/issues"
+    "url": "https://github.com/Entropy159/MMM-GoogleCalendar/issues"
   },
-  "homepage": "https://github.com/randomBrainstormer/MMM-GoogleCalendar#readme",
+  "homepage": "https://github.com/Entropy159/MMM-GoogleCalendar#readme",
   "dependencies": {
     "@google-cloud/local-auth": "^3.0.1",
     "googleapis": "^149.0.0"
