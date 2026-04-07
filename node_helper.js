@@ -325,11 +325,12 @@ module.exports = NodeHelper.create({
             } else {
               const colors = res.data.event;
 
-              Log.info(`${this.name}: Received colors: ${JSON.stringify(colors, null, 2)}`);
-
               events.forEach(event => {
-                const color = colors[event.colorId].background;
-                event.color = color;
+                const colorObj = colors[event.colorId];
+                if (colorObj !== null) {
+                  const color = colorObj.background;
+                  event.color = color;
+                }
                 Log.info(`${this.name}: Mapped ID ${event.colorId} to ${event.color}`);
               });
 
