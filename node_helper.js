@@ -309,6 +309,26 @@ module.exports = NodeHelper.create({
         } else {
           const events = res.data.items;
 
+          this.calendarService.colors.list({}, (err, res) => {
+            if (err) {
+              Log.error(`${this.name} Error. Could not fetch calendar colors: `, calendarID, formatError(err));
+              let errorType = NodeHelper.checkFetchError(err); // Use let for reassigned variable
+              if (errorType === "MODULE_ERROR_UNSPECIFIED") {
+                errorType = this.checkForHTTPError(err) || errorType;
+              }
+
+              // send error to module
+              this.sendSocketNotification("CALENDAR_ERROR", {
+                id: identifier,
+                error_type: errorType // Ensure consistency in property name
+              });
+            } else {
+              const colors = res.data.event;
+              Log.info(`${this.name}: Received ${colors.length} colors: ${colors}`);
+              Log.info(`${this.name}: Events: ${events}`);
+            }
+          });
+
           Log.info(
             `${this.name}: ${events.length} events loaded for ${calendarID}`
           );
