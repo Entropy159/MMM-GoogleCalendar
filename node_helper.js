@@ -330,6 +330,7 @@ module.exports = NodeHelper.create({
                 if (colorObj) {
                   const color = colorObj.background;
                   event.color = color;
+                  event.originalColor = color;
                 }
               });
 
